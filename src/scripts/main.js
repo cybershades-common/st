@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const menuText = menuToggle.querySelector('.menu-text');
     const menuMainItems = document.querySelectorAll('.menu-main-item');
     const menuSubItems = document.querySelectorAll('.menu-sub-item');
+    const footerArrowUp = document.getElementById('footerArrowUp');
 
     const btnEnquire = document.querySelector('.btn-enquire');
     const dropdownWrappers = document.querySelectorAll('.dropdown-wrapper');
@@ -186,4 +187,13 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         );
     });
+
+    if (footerArrowUp) {
+        footerArrowUp.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    }
 });

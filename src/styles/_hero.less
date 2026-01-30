@@ -2,7 +2,7 @@
 
 .hero {
   position: relative;
-  padding-top: 18.0625rem;
+  padding-top: 28.9rem; // Figma: Hero Header Content frame y="289" (28.9rem from top of hero section)
   padding-bottom: @spacing-base;
   background-color: @primary-gold-4;
   overflow: hidden;
@@ -10,10 +10,20 @@
 }
 
 .hero .container-fluid {
-  padding-left: 2rem;
-  padding-right: 2rem;
+  padding-left: 3.2rem; // Figma: Hero Header Content frame x="32" (3.2rem from left)
+  padding-right: 3.2rem;
   position: relative;
   z-index: 2;
+  
+  @media (min-width: @breakpoint-lg) {
+    max-width: 137.8rem; // Figma: Hero Header Content frame width="1378" (137.8rem)
+  }
+}
+
+.hero .row {
+  margin-left: 0;
+  margin-right: 0;
+  width: 100%;
 }
 
 .hero-gradient {
@@ -31,38 +41,58 @@
 }
 
 .hero-content {
-  // Bootstrap col-lg-6 handles width
+  padding-left: 0; // Title starts at x="0" within the Hero Header Content frame
+  padding-right: 0;
+  position: relative;
+  
+  @media (min-width: @breakpoint-lg) {
+    width: 77.6rem; // Figma: title width="776" (77.6rem)
+    max-width: 77.6rem;
+    flex: 0 0 auto;
+  }
 }
 
 .hero-title {
   font-family: @font-family-helvetica-neue;
-  font-size: @font-size-h1;
+  font-size: 18rem; // Figma: 180px (18rem)
   font-weight: @font-weight-light;
-  line-height: 1;
-  letter-spacing: -0.54rem;
+  line-height: 1; // Figma: paragraph has leading-none (line-height: 1)
+  letter-spacing: -0.54rem; // Figma: -5.4px
   color: @primary-blue-tint;
-  margin: 0;
+  margin: -1rem 0 0 -2rem; // Move 1rem up and 2rem left
+  padding: 0;
   overflow: visible;
   white-space: pre-wrap;
+  display: block;
 }
 
 .hero-text {
-  height: 30.9rem;
+  padding-left: 0;
+  padding-right: 0;
   
   @media (min-width: @breakpoint-lg) {
+    width: 44.5rem; // Figma: Summary frame width="445" (44.5rem)
     max-width: 44.5rem;
+    height: 30.9rem; // Figma: Summary frame height="309" (30.9rem)
+    flex: 0 0 auto;
+    // Summary frame is at x="933" within Hero Header Content frame
+    // Gap between title (776px) and summary (933px) = 157px, handled by justify-content-between
   }
 }
 
 .hero-text p {
   font-family: @font-family-helvetica-neue;
-  font-size: @font-size-b1;
+  font-size: @font-size-b1; // Figma: 20px (2rem)
   font-weight: @font-weight-light;
-  line-height: @line-height-b1;
+  line-height: @line-height-b1; // Figma: 1.4
   letter-spacing: 0;
   color: @basic-black;
   margin: 0;
-  width: 32.9rem;
+  
+  @media (min-width: @breakpoint-lg) {
+    width: 32.9rem; // Figma: width: 329px
+  }
+  
   white-space: pre-wrap;
 }
 

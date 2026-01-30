@@ -305,8 +305,12 @@ body {
 }
 .hamburger {
   position: relative;
-  width: 2.5rem;
-  height: 1.2rem;
+  width: 3.6rem;
+  height: 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.3rem;
 }
 .hamburger-line {
   display: block;
@@ -673,17 +677,27 @@ body {
 }
 .hero {
   position: relative;
-  padding-top: 18.0625rem;
+  padding-top: 28.9rem;
   padding-bottom: 4rem;
   background-color: #f6f3ec;
   overflow: hidden;
   min-height: 100vh;
 }
 .hero .container-fluid {
-  padding-left: 2rem;
-  padding-right: 2rem;
+  padding-left: 3.2rem;
+  padding-right: 3.2rem;
   position: relative;
   z-index: 2;
+}
+@media (min-width: 992px) {
+  .hero .container-fluid {
+    max-width: 137.8rem;
+  }
+}
+.hero .row {
+  margin-left: 0;
+  margin-right: 0;
+  width: 100%;
 }
 .hero-gradient {
   position: absolute;
@@ -698,23 +712,41 @@ body {
   opacity: 1;
   z-index: 0;
 }
+.hero-content {
+  padding-left: 0;
+  padding-right: 0;
+  position: relative;
+}
+@media (min-width: 992px) {
+  .hero-content {
+    width: 77.6rem;
+    max-width: 77.6rem;
+    flex: 0 0 auto;
+  }
+}
 .hero-title {
   font-family: 'Helvetica Neue LT Pro', sans-serif;
-  font-size: 9rem;
+  font-size: 18rem;
   font-weight: 300;
   line-height: 1;
   letter-spacing: -0.54rem;
   color: #1406c5;
-  margin: 0;
+  margin: -1rem 0 0 -2rem;
+  padding: 0;
   overflow: visible;
   white-space: pre-wrap;
+  display: block;
 }
 .hero-text {
-  height: 30.9rem;
+  padding-left: 0;
+  padding-right: 0;
 }
 @media (min-width: 992px) {
   .hero-text {
+    width: 44.5rem;
     max-width: 44.5rem;
+    height: 30.9rem;
+    flex: 0 0 auto;
   }
 }
 .hero-text p {
@@ -725,8 +757,12 @@ body {
   letter-spacing: 0;
   color: #27251f;
   margin: 0;
-  width: 32.9rem;
   white-space: pre-wrap;
+}
+@media (min-width: 992px) {
+  .hero-text p {
+    width: 32.9rem;
+  }
 }
 .hero-media {
   position: relative;

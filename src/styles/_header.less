@@ -114,14 +114,18 @@
 
 .hamburger {
   position: relative;
-  width: 2.5rem;
-  height: 1.2rem;
+  width: 3.6rem; // Figma: w-[36px]
+  height: 4rem; // Figma: h-[40px]
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.3rem; // Figma: gap-[3px]
 }
 
 .hamburger-line {
   display: block;
   width: 100%;
-  height: 0.2rem;
+  height: 0.2rem; // Figma: h-[2px]
   background-color: @basic-black;
   transition: all 0.3s cubic-bezier(0.215, 0.610, 0.355, 1.000);
   transform-origin: center;

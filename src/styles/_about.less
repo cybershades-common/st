@@ -1,0 +1,129 @@
+// About Section Styles
+
+.about-section {
+  padding-top: 3.5rem;
+  padding-bottom: @spacing-base;
+  background-color: @primary-gold-4;
+  position: relative;
+}
+
+.about-section .container-fluid {
+  padding-left: 3rem;
+  padding-right: 3rem;
+  position: relative;
+  
+  @media (min-width: @breakpoint-lg) {
+    max-width: 138rem;
+  }
+}
+
+.about-heading {
+  font-family: @font-family-helvetica-neue;
+  font-size: 6rem;
+  font-weight: @font-weight-light;
+  line-height: 1.05;
+  letter-spacing: -0.06rem;
+  color: @primary-blue;
+  margin: 0;
+  padding: 0;
+  white-space: pre-wrap;
+}
+
+.about-heading .underline {
+  text-decoration: underline;
+  text-decoration-style: solid;
+}
+
+.about-content-row {
+  margin-top: 12.5rem;
+}
+
+.about-content {
+  padding-right: 0;
+  padding-left: 0;
+}
+
+.about-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-bottom: 1.9rem;
+}
+
+.about-text p {
+  font-family: @font-family-helvetica-neue;
+  font-size: @font-size-b2;
+  font-weight: @font-weight-regular;
+  line-height: @line-height-b2;
+  letter-spacing: 0;
+  color: @basic-black;
+  margin: 0;
+  white-space: pre-wrap;
+}
+
+.about-buttons {
+  gap: 1rem;
+}
+
+.about-image {
+  padding-left: 0;
+  height: 58.4rem;
+  overflow: hidden;
+}
+
+.about-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (max-width: @breakpoint-lg - 1px) {
+  .about-section {
+    padding-top: 2rem;
+    padding-bottom: 3rem;
+  }
+
+  .about-section .container-fluid {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  .about-heading {
+    font-size: 3rem;
+    letter-spacing: -0.03rem;
+    margin-bottom: 3rem;
+  }
+
+  .about-content-row {
+    margin-top: 3rem;
+  }
+
+  .about-content {
+    margin-bottom: 3rem;
+  }
+
+  .about-text {
+    margin-bottom: 2rem;
+  }
+
+  .about-buttons {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .about-image {
+    padding-top: 2rem;
+    height: 40rem;
+  }
+}
+
+@media (max-width: @breakpoint-md - 1px) {
+  .about-heading {
+    font-size: 2.5rem;
+  }
+
+  .about-image {
+    height: 30rem;
+  }
+}

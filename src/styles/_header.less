@@ -201,7 +201,10 @@
   white-space: pre-wrap;
   opacity: 0;
   transform: translateY(30px);
-  transition: opacity 0.4s ease, transform 0.4s ease, color 0.3s ease;
+  transition-property: opacity, transform;
+  transition-duration: 0.4s, 0.4s;
+  transition-timing-function: ease, ease;
+  transition-delay: 0s, 0s;
   display: block;
   width: 100%;
   margin-bottom: -0.5rem; // Reduce gap between items
@@ -213,35 +216,39 @@
 }
 
 .mega-menu.active .menu-main-item:nth-child(1) {
-  transition-delay: 0.4s;
+  transition-delay: 0.4s, 0.4s;
 }
 
 .mega-menu.active .menu-main-item:nth-child(2) {
-  transition-delay: 0.45s;
+  transition-delay: 0.45s, 0.45s;
 }
 
 .mega-menu.active .menu-main-item:nth-child(3) {
-  transition-delay: 0.5s;
+  transition-delay: 0.5s, 0.5s;
 }
 
 .mega-menu.active .menu-main-item:nth-child(4) {
-  transition-delay: 0.55s;
+  transition-delay: 0.55s, 0.55s;
 }
 
 .mega-menu.active .menu-main-item:nth-child(5) {
-  transition-delay: 0.6s;
+  transition-delay: 0.6s, 0.6s;
 }
 
 .mega-menu.active .menu-main-item:nth-child(6) {
-  transition-delay: 0.65s;
+  transition-delay: 0.65s, 0.65s;
 }
 
 .mega-menu.active .menu-main-item:nth-child(7) {
-  transition-delay: 0.7s;
+  transition-delay: 0.7s, 0.7s;
 }
 
 .menu-main-item:hover {
-  color: @primary-blue; // Blue color on hover like active state
+  color: @primary-blue !important; // Blue color on hover - immediate change
+  transition-property: opacity, transform !important;
+  transition-duration: 0.4s, 0.4s !important;
+  transition-timing-function: ease, ease !important;
+  transition-delay: 0s, 0s !important;
 }
 
 .menu-main-item.active {
@@ -263,7 +270,10 @@
   white-space: pre-wrap;
   opacity: 0;
   transform: translateX(-20px);
-  transition: opacity 0.4s ease, transform 0.4s ease, color 0.3s ease;
+  transition-property: opacity, transform;
+  transition-duration: 0.4s, 0.4s;
+  transition-timing-function: ease, ease;
+  transition-delay: 0s, 0s;
   display: block;
   width: 100%;
 }
@@ -319,7 +329,11 @@
 }
 
 .menu-sub-item:hover {
-  color: @primary-blue;
+  color: @primary-blue !important; // Immediate color change on hover
+  transition-property: opacity, transform !important;
+  transition-duration: 0.4s, 0.4s !important;
+  transition-timing-function: ease, ease !important;
+  transition-delay: 0s, 0s !important;
 }
 
 .menu-image-wrapper {

@@ -28,23 +28,24 @@
 
 .hero-gradient {
   position: absolute;
-  bottom: -20rem; // Position below the text content
-  left: 0;
-  width: 20rem;
-  height: 20rem;
+  bottom: -12rem; // Anchor to title block
+  left: -10rem;
+  width: 70rem;
+  height: 70rem;
   border-radius: 128.1875rem;
   background: radial-gradient(circle, @primary-yellow-bright 0%, rgba(223, 210, 34, 0.6) 50%, rgba(255, 240, 42, 0.2) 100%);
-  filter: blur(250px);
+  filter: blur(140px);
   pointer-events: none;
   opacity: 0; // Start hidden, will be animated by GSAP
-  z-index: 1; // Above background but below text
-  visibility: hidden; // Start hidden
+  z-index: 0; // Below title text
+  visibility: visible; // Allow GSAP to animate from hidden
 }
 
 .hero-content {
   padding-left: 0; // Title starts at x="0" within the Hero Header Content frame
   padding-right: 0;
   position: relative;
+  z-index: 2;
   
   @media (min-width: @breakpoint-lg) {
     width: 77.6rem; // Figma: title width="776" (77.6rem)
@@ -66,6 +67,7 @@
   white-space: pre-wrap;
   display: block;
   position: relative;
+  z-index: 1;
   top: -4rem; // Move 2rem up
   left: -7rem; // Move 2rem left
 }

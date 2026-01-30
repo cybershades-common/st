@@ -1,5 +1,5 @@
 // Menu functionality
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const header = document.getElementById('header');
     const menuToggle = document.getElementById('menuToggle');
     const megaMenu = document.getElementById('megaMenu');
@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', function() {
         updateHeaderOnScroll();
     }
 
-    menuToggle.addEventListener('click', function() {
+    menuToggle.addEventListener('click', function () {
         if (isMenuOpen) {
             closeMenu();
         } else {
@@ -98,7 +98,7 @@ document.addEventListener('DOMContentLoaded', function() {
         scrollTicking = false;
     }
 
-    window.addEventListener('scroll', function() {
+    window.addEventListener('scroll', function () {
         if (!scrollTicking) {
             window.requestAnimationFrame(updateHeaderOnScroll);
             scrollTicking = true;
@@ -106,29 +106,30 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     updateHeaderOnScroll();
 
+    gsap.registerPlugin(ScrollTrigger);
+
     // Hero animations
     function initHeroAnimations() {
         const heroGradient = document.querySelector('.hero-gradient');
         if (heroGradient) {
-            const viewportHeight = window.innerHeight;
-            const startY = viewportHeight + 200; // 100vh + 20rem (approximately)
-            
-            // Set initial state
             gsap.set(heroGradient, {
-                y: startY,
-                x: '-10%',
+                x: '-40%',
+                y: '65vh',
                 opacity: 0,
                 visibility: 'visible'
             });
-            
-            // Animate to final position
+
             gsap.to(heroGradient, {
-                y: 0,
-                x: 0,
-                opacity: 1, // Darker gradient
-                duration: 1.5,
-                delay: 0.2,
-                ease: 'power2.out'
+                x: '-15vw',
+                y: '35vh',
+                opacity: 0.9,
+                duration: 1.3,
+                ease: 'power2.out',
+                scrollTrigger: {
+                    trigger: '.hero',
+                    start: 'top 95%',
+                    toggleActions: 'play none none reverse'
+                }
             });
         }
 
@@ -164,8 +165,6 @@ document.addEventListener('DOMContentLoaded', function() {
     initHeroAnimations();
 
     // Smooth scroll animations for elements
-    gsap.registerPlugin(ScrollTrigger);
-
     const sections = document.querySelectorAll('section:not(.hero)');
     sections.forEach(section => {
         const elements = section.querySelectorAll('h1, h2, h3, h4, p, .btn-rounded-large-outline, img');

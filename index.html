@@ -13,21 +13,22 @@
 
 
     <!-- Header Section -->
-    <header class="header" id="header">
+    <header class="header position-fixed top-0 start-0 end-0" id="header">
         <div class="container-fluid">
-            <div class="header-content">
-                <div class="header-logo">
-                    <img src="assets/icons/Crest-logo.svg" alt="St Patrick's College">
-                    <div class="header-logo-text">
+            <div class="row align-items-center g-0">
+                <div class="col-lg-auto header-logo d-flex align-items-center">
+                    <img src="assets/icons/Crest-logo.svg" alt="St Patrick's College" class="flex-shrink-0">
+                    <div class="header-logo-text d-flex flex-column justify-content-center">
                         <span class="logo-text logo-text-main">ST PATRICK'S</span>
                         <span class="logo-text logo-text-sub">COLLEGE</span>
                     </div>
                 </div>
-                <nav class="header-nav">
-                    <button class="btn-rounded-large-outline btn-header btn-book-tour">Book a Tour</button>
-                    <button class="btn-rounded-large-outline btn-header btn-enquire" style="display: none;">Enquire
+                <div class="col-lg"></div>
+                <div class="col-lg-auto header-nav d-flex align-items-center">
+                    <button class="btn-rounded-large-outline btn-header btn-book-tour me-3 d-none d-lg-inline-block">Book a Tour</button>
+                    <button class="btn-rounded-large-outline btn-header btn-enquire d-none">Enquire
                         Today</button>
-                    <div class="dropdown-wrapper" style="display: none;">
+                    <div class="dropdown-wrapper d-none">
                         <button class="menu-dropdown-btn">
                             Work with Us
                             <svg width="12" height="8" viewBox="0 0 12 8" fill="none"
@@ -37,7 +38,7 @@
                             </svg>
                         </button>
                     </div>
-                    <div class="dropdown-wrapper" style="display: none;">
+                    <div class="dropdown-wrapper d-none">
                         <button class="menu-dropdown-btn">
                             Quick Links
                             <svg width="12" height="8" viewBox="0 0 12 8" fill="none"
@@ -47,7 +48,7 @@
                             </svg>
                         </button>
                     </div>
-                    <div class="header-icons-wrapper">
+                    <div class="header-icons-wrapper d-flex align-items-center">
                         <button class="header-icon-btn">
                             <img src="assets/icons/header-search-icon.svg" alt="Search">
                         </button>
@@ -55,14 +56,14 @@
                             <img src="assets/icons/profile-icon.svg" alt="Profile">
                         </button>
                     </div>
-                    <button class="menu-toggle" id="menuToggle">
+                    <button class="menu-toggle d-flex align-items-center" id="menuToggle">
                         <span class="menu-text">MENU</span>
-                        <div class="hamburger" id="hamburger">
+                        <div class="hamburger d-flex flex-column justify-content-between" id="hamburger">
                             <span class="hamburger-line"></span>
                             <span class="hamburger-line"></span>
                         </div>
                     </button>
-                </nav>
+                </div>
             </div>
         </div>
     </header>
@@ -71,10 +72,10 @@
     <div class="mega-menu-overlay" id="menuOverlay"></div>
 
     <!-- Mega Menu -->
-    <div class="mega-menu" id="megaMenu">
-        <div class="container-fluid">
-            <div class="mega-menu-inner">
-                <div class="menu-main-items">
+    <div class="mega-menu position-fixed top-0 start-0 end-0" id="megaMenu">
+        <div class="container-fluid d-flex flex-column h-100">
+            <div class="mega-menu-inner row g-4 flex-grow-1">
+                <div class="col-lg-4 menu-main-items d-flex flex-column">
                     <a href="#" class="menu-main-item">Home</a>
                     <a href="#" class="menu-main-item active">About</a>
                     <a href="#" class="menu-main-item">Identity</a>
@@ -83,7 +84,7 @@
                     <a href="#" class="menu-main-item">Community</a>
                     <a href="#" class="menu-main-item">Enrolment</a>
                 </div>
-                <div class="menu-sub-items">
+                <div class="col-lg-4 menu-sub-items d-flex flex-column">
                     <a href="#" class="menu-sub-item">Principal's Welcome</a>
                     <a href="#" class="menu-sub-item">Captain's Welcome</a>
                     <a href="#" class="menu-sub-item">History</a>
@@ -95,18 +96,18 @@
                     <a href="#" class="menu-sub-item">Governance</a>
                     <a href="#" class="menu-sub-item">Policies and Forms</a>
                 </div>
-                <div class="menu-image-wrapper">
-                    <img src="assets/icons/menu-image.jpg" alt="St Patrick's College" class="menu-image">
+                <div class="col-lg-4 menu-image-wrapper d-flex align-items-start justify-content-center">
+                    <img src="assets/icons/menu-image.jpg" alt="St Patrick's College" class="menu-image w-100 h-100">
                 </div>
             </div>
-            <div class="mega-menu-footer">
-                <div class="footer-content">
-                    <div class="menu-footer-left">
+            <div class="mega-menu-footer flex-shrink-0">
+                <div class="row align-items-center g-0">
+                    <div class="col-lg-6 menu-footer-left d-flex align-items-center">
                         <span>Francis Street, Strathfield 2135 NSW</span>
                         <span>+612 9763 1000</span>
                     </div>
-                    <div class="menu-footer-right">
-                        <span class="follow-label">Follow Us</span>
+                    <div class="col-lg-6 menu-footer-right d-flex align-items-center justify-content-lg-end">
+                        <span class="follow-label me-2">Follow Us</span>
                         <a href="#">Facebook</a>
                         <a href="#">Instagram</a>
                         <a href="#">Linkedin</a>
@@ -117,32 +118,32 @@
     </div>
 
     <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-gradient"></div>
-        <div class="container-fluid">
-            <div class="hero-content-wrapper">
-                <div class="hero-content">
-                    <h1 class="hero-title">Let your light shine.</h1>
+    <section class="hero position-relative">
+        <div class="hero-gradient position-absolute"></div>
+        <div class="container-fluid position-relative">
+            <div class="row align-items-center justify-content-between g-0">
+                <div class="col-lg-6 hero-content">
+                    <h1 class="hero-title mb-0">Let your light shine.</h1>
                 </div>
-                <div class="hero-text">
-                    <p>An independent  Catholic day school for boys  from Years 5 to 12 in the  Edmund Rice tradition educating spirited men of faith and purpose.</p>
-                    <button class="btn-rounded-large-outline">Welcome to St Patrick's</button>
+                <div class="col-lg-6 hero-text d-flex flex-column justify-content-between align-items-start">
+                    <p class="mb-0">An independent  Catholic day school for boys  from Years 5 to 12 in the  Edmund Rice tradition educating spirited men of faith and purpose.</p>
+                    <button class="btn-rounded-large-outline mt-auto">Welcome to St Patrick's</button>
                 </div>
             </div>
         </div>
-        <div class="hero-media">
-            <div class="hero-media-wrapper">
+        <div class="hero-media position-relative w-100">
+            <div class="hero-media-wrapper position-relative w-100 h-100">
                 <!-- Option 1: Use Image -->
-                <img src="assets/images/hero-image.jpg" alt="St Patrick's College" class="hero-image" id="heroImage">
+                <img src="assets/images/hero-image.jpg" alt="St Patrick's College" class="hero-image w-100 h-100" id="heroImage">
                 
                 <!-- Option 2: Use Video (uncomment and comment out image above) -->
-                <!-- <video class="hero-video" id="heroVideo" autoplay muted loop playsinline>
+                <!-- <video class="hero-video position-absolute top-0 start-0 w-100 h-100" id="heroVideo" autoplay muted loop playsinline>
                     <source src="assets/videos/hero-video.mp4" type="video/mp4">
                     <source src="assets/videos/hero-video.webm" type="video/webm">
                     Your browser does not support the video tag.
                 </video> -->
                 
-                <div class="hero-media-overlay"></div>
+                <div class="hero-media-overlay position-absolute top-0 start-0 w-100 h-100"></div>
             </div>
         </div>
     </section>

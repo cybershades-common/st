@@ -552,6 +552,7 @@ body {
 .menu-sub-items {
   gap: 0.3125rem;
   padding-left: 0;
+  padding-top: 1.25rem;
 }
 .menu-sub-item {
   font-family: var(--font-family-helvetica-neue);
@@ -924,6 +925,7 @@ body {
   top: 0;
   left: 0;
   z-index: 1;
+  object-position: center;
 }
 .hero-image {
   position: relative;

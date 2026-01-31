@@ -6,6 +6,48 @@
 html {
   font-size: 16px;
 }
+img,
+object,
+video {
+  max-width: 100%;
+  object-fit: cover;
+}
+.full {
+  width: 100%;
+}
+a:focus,
+button:focus,
+input:focus,
+textarea:focus,
+select:focus,
+a:hover,
+button:hover,
+input:hover,
+textarea:hover,
+select:hover,
+a:active,
+button:active,
+input:active,
+textarea:active,
+select:active,
+a:visited,
+button:visited,
+input:visited,
+textarea:visited,
+select:visited,
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+a:focus-within,
+button:focus-within,
+input:focus-within,
+textarea:focus-within,
+select:focus-within {
+  outline: none;
+  box-shadow: none;
+}
 .container-fluid {
   padding-left: 1.875rem;
   padding-right: 1.875rem;
@@ -987,6 +1029,8 @@ body {
 }
 .about-content-row {
   margin-top: 7.8125rem;
+  position: relative;
+  z-index: 11;
 }
 .about-content {
   padding-right: 0;
@@ -1020,6 +1064,15 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+.about-gradient {
+  width: 62.6875rem;
+  height: 62.6875rem;
+  aspect-ratio: 1/1;
+  border-radius: 62.6875rem;
+  background: var(--primary-yellow-bright, #FFF02A);
+  filter: blur(250px);
+  z-index: 1;
 }
 @media (max-width: 991px) {
   .about-section {

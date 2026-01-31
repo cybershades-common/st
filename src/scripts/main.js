@@ -121,8 +121,8 @@ document.addEventListener('DOMContentLoaded', function () {
             });
 
             gsap.to(heroGradient, {
-                x: '-15vw',
-                y: '35vh',
+                x: '-6vw',
+                y: '38vh',
                 opacity: 0.9,
                 duration: 3.3,
                 ease: 'power2.out',

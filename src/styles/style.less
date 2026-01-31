@@ -10,6 +10,34 @@ html {
   font-size: 16px;
 }
 
+img,
+object,
+video {
+  max-width: 100%;
+  object-fit: cover;
+}
+.full{
+  width: 100%;
+}
+
+a,
+button,
+input,
+textarea,
+select {
+  &:focus,
+  &:hover,
+  &:active,
+  &:visited,
+  &:focus-visible,
+  &:focus-within {
+    outline: none;
+    box-shadow: none;
+  }
+}
+
+
+
 .container-fluid {
   padding-left: 1.875rem;
   padding-right: 1.875rem;

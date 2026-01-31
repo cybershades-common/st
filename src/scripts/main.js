@@ -44,11 +44,48 @@ document.addEventListener('DOMContentLoaded', function () {
             wrapper.style.display = 'flex';
         });
 
-        gsap.to(megaMenu, {
-            opacity: 1,
-            duration: 0.3,
-            ease: 'power2.out'
-        });
+        // Create menu animation timeline
+        const menuTimeline = gsap.timeline();
+
+        const menuMainItems = document.querySelectorAll('.menu-main-item');
+        const menuSubItems = document.querySelectorAll('.menu-sub-item');
+        const menuImage = document.querySelector('.menu-image');
+        const menuFooter = document.querySelector('.mega-menu-footer');
+
+        // Clear any existing properties
+        gsap.set([menuMainItems, menuSubItems], { clearProps: 'all' });
+
+        menuTimeline
+            // Mega menu fade in
+            .to(megaMenu, {
+                opacity: 1,
+                duration: 0.3,
+                ease: 'power2.out'
+            }, '0')
+            // Main menu items (starts immediately with mega menu)
+            .fromTo(menuMainItems,
+                { opacity: 0, x: -60, force3D: true },
+                { opacity: 1, x: 0, duration: 0.3, stagger: 0.1, ease: 'power1.out', force3D: true },
+                '+=0.3'
+            )
+            // Sub menu items (after main menu)
+            .fromTo(menuSubItems,
+                { opacity: 0, x: -20, force3D: true },
+                { opacity: 1, x: 0, duration: 0.4, stagger: 0.04, ease: 'power1.out', force3D: true },
+                '-=0.2'
+            )
+            // Menu image (after sub menu)
+            .fromTo(menuImage,
+                { opacity: 0, scale: 0.95 },
+                { opacity: 1, scale: 1, duration: 0.5, ease: 'power2.out' },
+                '-=0.2'
+            )
+            // Menu footer (after image)
+            .fromTo(menuFooter,
+                { opacity: 0, y: 20 },
+                { opacity: 1, y: 0, duration: 0.4, ease: 'power2.out' },
+                '-=0.2'
+            );
 
     }
 
@@ -66,6 +103,17 @@ document.addEventListener('DOMContentLoaded', function () {
         megaMenu.classList.remove('active');
         menuOverlay.classList.remove('active');
         document.body.style.overflow = '';
+
+        // Reset menu items for next open
+        const menuMainItems = document.querySelectorAll('.menu-main-item');
+        const menuSubItems = document.querySelectorAll('.menu-sub-item');
+        const menuImage = document.querySelector('.menu-image');
+        const menuFooter = document.querySelector('.mega-menu-footer');
+
+        gsap.set(menuMainItems, { opacity: 0, x: -60 });
+        gsap.set(menuSubItems, { opacity: 0, x: -20 });
+        gsap.set(menuImage, { opacity: 0, scale: 0.95 });
+        gsap.set(menuFooter, { opacity: 0, y: 20 });
 
         btnEnquire.style.display = 'none';
         dropdownWrappers.forEach(wrapper => {

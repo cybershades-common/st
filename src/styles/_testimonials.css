@@ -97,7 +97,6 @@
   letter-spacing: 0;
   color: var(--primary-blue);
   margin: 0;
-  white-space: pre-wrap;
 }
 .testimonials-attribution {
   font-family: var(--font-family-helvetica-neue);
@@ -108,7 +107,6 @@
   color: var(--basic-black);
   text-transform: uppercase;
   margin: 0;
-  white-space: pre-wrap;
 }
 .testimonials-button-col {
   padding-right: 0;

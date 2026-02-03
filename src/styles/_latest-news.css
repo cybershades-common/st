@@ -27,7 +27,6 @@
   margin: 0;
   width: 26.375rem;
   max-width: 100%;
-  white-space: pre-wrap;
 }
 .latest-news-content-col {
   padding-left: 0;
@@ -43,7 +42,6 @@
   margin-bottom: var(--spacing-small-2);
   width: 35.125rem;
   max-width: 100%;
-  white-space: pre-wrap;
 }
 .latest-news-buttons {
   gap: var(--spacing-xs);

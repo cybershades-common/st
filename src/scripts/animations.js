@@ -397,7 +397,7 @@ class GSAPAnimations {
     }
 
     const hidden = 'inset(0 100% 0 0)';
-    const shown  = 'inset(0 0%   0 0)';
+    const shown  = 'inset(0 -1px 0 0)';
 
     gsap.set(btn, { clipPath: hidden, webkitClipPath: hidden, willChange: 'clip-path' });
     gsap.set(txt, { clipPath: hidden, webkitClipPath: hidden, display: 'inline-block', lineHeight: 'normal', willChange: 'clip-path' });

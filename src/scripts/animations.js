@@ -263,7 +263,7 @@ class GSAPAnimations {
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: el,
-        start:   'top 90%',
+        start:   cfg.start,
         end:     end,
         scrub:   1,
         once:    true

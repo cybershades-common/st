@@ -256,7 +256,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 heroTimeline.to(ctaText, {
                     clipPath: 'inset(0 0% 0 0)',
                     webkitClipPath: 'inset(0 0% 0 0)',
-                    duration: 0.9,
+                    duration: 0.7,
                     ease: 'none',
                     force3D: true,
                     autoRound: false
@@ -265,18 +265,18 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         // Hero gradient - subtle fade in from background
-        const heroGradient = document.querySelector('.hero-gradient');
-        if (heroGradient) {
-            gsap.set(heroGradient, {
-                opacity: 0
-            });
+        // const heroGradient = document.querySelector('.hero-gradient');
+        // if (heroGradient) {
+        //     gsap.set(heroGradient, {
+        //         opacity: 0
+        //     });
 
-            heroTimeline.to(heroGradient, {
-                opacity: 0.6,
-                duration: 2.5,
-                ease: 'power1.inOut'
-            }, 0.3);
-        }
+        //     heroTimeline.to(heroGradient, {
+        //         opacity: 0.6,
+        //         duration: 2.5,
+        //         ease: 'power1.inOut'
+        //     }, 0.3);
+        // }
     }
 
     initHeroAnimations();

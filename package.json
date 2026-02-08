@@ -22,7 +22,7 @@
   "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "https://github.com/yourusername/st-patrick.git"
+    "url": "https://github.com/cybershades-common/st.git"
   },
   "devDependencies": {
     "less": "^4.2.0",

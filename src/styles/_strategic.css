@@ -1,49 +1,31 @@
-// Strategic Section Styles
-
 .strategic-section {
   position: relative;
   overflow: hidden;
   height: 810px;
   max-height: 90vh;
-
-
 }
-
 .strategic-background {
   top: 0;
   left: 0;
   z-index: 1;
 }
-
-
-
 .strategic-overlay {
   background-color: rgba(0, 0, 0, 0.5);
   position: absolute;
   top: 0;
   left: 0;
   z-index: 4;
-
 }
-
 .strategic-section .container-fluid {
   position: relative;
   z-index: 5;
   display: flex;
   height: 100%;
-
-  // @media (min-width: 992px) {
-  //   max-width: 90rem;
-  // }
 }
-
 .strategic-content {
   padding-top: 2.0625rem;
   position: relative;
 }
-
-
-
 .strategic-heading {
   font-family: var(--font-family-helvetica-neue);
   font-size: var(--font-size-h2);
@@ -53,35 +35,27 @@
   color: var(--basic-white);
   margin: 0;
   margin-bottom: 0.625rem;
-
 }
-
 .strategic-button {
   border-color: var(--basic-white);
   color: var(--basic-white);
   margin-top: 0.625rem;
 }
-
 .strategic-button:hover {
   background-color: var(--basic-white);
   color: var(--basic-black);
 }
-
 .strategic-text-wrapper {
   position: absolute;
   bottom: 1.875rem;
-  left:0;
-
+  left: 0;
 }
-
 .strategic-text-col {
   padding-right: 1.0625rem;
 }
-
 .strategic-text-col:last-child {
   padding-right: 0;
 }
-
 .strategic-text-col p {
   font-family: var(--font-family-helvetica-neue);
   font-size: var(--font-size-b2);
@@ -89,70 +63,54 @@
   line-height: var(--line-height-b2);
   letter-spacing: 0;
   color: var(--basic-white);
-
   margin: 0;
 }
-
 @media (max-width: 991px) {
   .strategic-section {
     min-height: 600px;
   }
-
   .strategic-section .container-fluid {
     padding-left: 1.25rem;
     padding-right: 1.25rem;
     display: flex;
     height: 100%;
-  
   }
-
   .strategic-content {
-
-padding-top: 3rem;
+    padding-top: 3rem;
     padding-bottom: 3rem;
     justify-content: space-between;
     display: flex;
     flex-direction: column;
-
-    .full {
-      width: initial;
-    }
-
   }
-
+  .strategic-content .full {
+    width: initial;
+  }
   .strategic-top {
     width: 100%;
     margin-bottom: 1.875rem;
   }
-
   .strategic-heading {
     font-size: 2.5rem;
     margin-bottom: 1.25rem;
   }
-
   .strategic-text-wrapper {
     position: relative;
     bottom: auto;
     left: auto;
-
     max-width: 100%;
     margin-top: 1.875rem;
   }
-
   .strategic-text-col {
     width: 100%;
     margin-bottom: 1.25rem;
   }
-
   .strategic-text-col:first-child {
     padding-right: 0;
   }
-
   .strategic-text-col:last-child {
     margin-bottom: 0;
   }
 }
-
 @media (max-width: 767px) {
   .strategic-heading {
     font-size: 1.875rem;

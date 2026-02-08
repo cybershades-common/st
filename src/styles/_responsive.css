@@ -1,0 +1,52 @@
+@media (min-width: 992px) and (max-width: 1200px) {
+  html {
+    font-size: 14px;
+  }
+}
+@media (min-width: 768px) and (max-width: 991px) {
+  html {
+    font-size: 14px;
+  }
+  html body h2 {
+    font-size: 2.75rem !important;
+  }
+}
+@media (max-width: 767px) {
+  .section .gradient-circle.right {
+    right: -146%;
+    bottom: -100%;
+  }
+  .section .gradient-circle.left {
+    left: -150%;
+    bottom: -75%;
+  }
+  .section .testimonials-gradient {
+    left: 92%;
+    top: 95%;
+  }
+}
+@media only screen and (min-device-width: 390px) and (max-device-width: 992px) and (orientation: landscape) {
+  html body .section .gradient-circle.right {
+    right: -100%;
+    bottom: -100%;
+  }
+  html body .section .gradient-circle.left {
+    left: -80%;
+    bottom: -100%;
+  }
+}
+@media (min-width: 1800px) {
+  html {
+    font-size: 21px;
+  }
+}
+@media (min-width: 2400px) {
+  html {
+    font-size: 28px;
+  }
+}
+@media (min-width: 3200px) {
+  html {
+    font-size: 40px;
+  }
+}

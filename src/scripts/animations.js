@@ -46,8 +46,6 @@ class GSAPAnimations {
     const heroTitleSpans = heroTitle?.querySelectorAll('span');
     const heroText = document.querySelector('.hero-text p');
     const heroButton = document.querySelector('.hero-text button');
-    const heroMediaWrapper = document.querySelector('.hero-media-wrapper');
-    const heroImage = document.querySelector('.hero-image');
     const heroGradient = document.querySelector('.hero-gradient');
 
     // Set initial states - force override any existing styles
@@ -93,24 +91,6 @@ class GSAPAnimations {
         opacity: 0,
         visibility: 'visible',
         force3D: true
-      });
-    }
-
-    // Hero media wrapper - animate the clip-path reveal
-    if (heroMediaWrapper) {
-      gsap.set(heroMediaWrapper, {
-        clipPath: 'inset(0 100% 0 0)',
-        webkitClipPath: 'inset(0 100% 0 0)'
-      });
-    }
-
-    // Hero image - scale effect
-    if (heroImage) {
-      gsap.set(heroImage, {
-        scale: 1.15,
-        force3D: true,
-        transformOrigin: 'center center',
-        willChange: 'transform'
       });
     }
 
@@ -161,29 +141,6 @@ class GSAPAnimations {
     }
 
     // Animate hero items
-    // First reveal the hero media wrapper with clip-path
-    if (heroMediaWrapper) {
-      tl.to(heroMediaWrapper, {
-        clipPath: 'inset(0 0% 0 0)',
-        webkitClipPath: 'inset(0 0% 0 0)',
-        duration: 1.2,
-        ease: 'power2.inOut'
-      }, 0.6);
-    }
-
-    // Simultaneously zoom in the image
-    if (heroImage) {
-      tl.to(heroImage, {
-        scale: 1,
-        duration: 1.4,
-        ease: 'power2.out',
-        force3D: true,
-        onComplete: () => {
-          gsap.set(heroImage, { clearProps: 'willChange' });
-        }
-      }, 0.6);
-    }
-
     if (heroGradient) {
       tl.to(heroGradient, {
         opacity: 1,

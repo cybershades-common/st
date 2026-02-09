@@ -2,7 +2,7 @@
 
 .about-section {
   padding-top: 2.1875rem;
-  padding-bottom: 2rem;
+  padding-bottom: var(--spacing-base);
   background-color: var(--primary-gold-4);
   position: relative;
   z-index: 0;
@@ -54,7 +54,7 @@
 }
 
 .about-content-row {
-  margin-top: 12.5rem;
+  margin-top: 7.8125rem;
   position: relative; 
   z-index: 11;
 }
@@ -87,6 +87,7 @@
 }
 
 .about-image {
+  padding-left: 0;
   height: 36.5rem;
   overflow: hidden;
 }
@@ -97,11 +98,6 @@
   object-fit: cover;
 }
 
-@media (min-width:992px) and (max-width:1200px){
-  .about-heading{
-    font-size: 3rem;
-  }
-}
 
 @media (max-width: 991px) {
   .about-section {

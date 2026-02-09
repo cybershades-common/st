@@ -6,18 +6,19 @@
   padding-bottom: var(--spacing-small-2);
 }
 
-// .latest-news-section .container-fluid {
-//   max-width: 86.5rem; // 1384px
-// }
+.latest-news-section .container-fluid {
+  max-width: 86.5rem; // 1384px
+}
 
 .latest-news-top {
   margin-bottom: 5rem; // 80px gap (246 - 166 = 80px)
 }
 
-.latest-news-heading-col {  
+.latest-news-heading-col {
+  padding-right: 0;
 
   @media (min-width: 992px) {
-    padding-right: 2rem; // 278px gap
+    padding-right: 8.5rem; // 278px gap
   }
 }
 
@@ -28,12 +29,15 @@
   line-height: var(--line-height-h2);
   letter-spacing: -0.0375rem; // -0.6px
   color: var(--primary-blue);
-  margin: 0; 
+  margin: 0;
+  width: 26.375rem; // 422px
   max-width: 100%;
 
 }
 
-
+.latest-news-content-col {
+  padding-left: 0;
+}
 
 .latest-news-description {
   font-family: var(--font-family-helvetica-neue);
@@ -62,7 +66,9 @@
   margin-bottom: 1.5rem; // 24px gap (65 - 41 = 24px)
 }
 
-
+.latest-news-filters-col {
+  padding-right: 0;
+}
 
 .latest-news-filters {
   gap: var(--spacing-2xs); // 15px
@@ -97,7 +103,7 @@
 }
 
 .latest-news-arrows-col {
-
+  padding-left: 0;
 
   @media (min-width: 992px) {
     margin-left: auto;
@@ -149,7 +155,6 @@
   transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   align-items: flex-start;
   will-change: transform;
-
 }
 
 .latest-news-track.dragging {
@@ -190,7 +195,6 @@
   transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-
 .latest-news-slide.active .latest-news-image {
   height: 31.25rem;
 }
@@ -200,7 +204,6 @@
   padding:1.25rem 0;
   transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
-
 
 
 
@@ -257,10 +260,14 @@ line-height: 140%; /* 1.75rem */
   }
 
   .latest-news-heading-col {
-      margin-bottom: var(--spacing-xs);
+    padding-right: 0;
+    margin-bottom: var(--spacing-xs);
   }
 
- 
+  .latest-news-content-col {
+    padding-left: 0;
+  }
+
   .latest-news-description {
     margin-bottom: var(--spacing-xs);
   }
@@ -279,6 +286,7 @@ line-height: 140%; /* 1.75rem */
   }
 
   .latest-news-arrows-col {
+    padding-left: 0;
     margin-left: 0;
   }
 
@@ -288,10 +296,6 @@ line-height: 140%; /* 1.75rem */
 }
 
 @media (max-width: 767px) {
-  
-  .latest-news-slider{
-    min-height: 28.5rem;
-  }
   .latest-news-heading {
     font-size: 2.5rem;
   }

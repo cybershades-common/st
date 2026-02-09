@@ -19,8 +19,6 @@
   filter: blur(100px);
   pointer-events: none;
   z-index: 1;
-  opacity: 0;
-  visibility: hidden;
 }
 
 .academics-section .container-fluid {
@@ -30,9 +28,12 @@
 }
 
 .academics-top {
-  margin-bottom: 7rem;
+  margin-bottom: 2.175rem;
 }
 
+.academics-heading-col {
+  padding-right: 0;
+}
 
 .academics-heading {
   font-family: var(--font-family-helvetica-neue);
@@ -45,6 +46,9 @@
 
 }
 
+.academics-content-col {
+  padding-left: 0;
+}
 
 .academics-text {
   font-family: var(--font-family-helvetica-neue);
@@ -125,10 +129,13 @@
   }
 
   .academics-heading-col {
+    padding-right: 0;
     margin-bottom: 1.25rem;
   }
 
-
+  .academics-content-col {
+    padding-left: 0;
+  }
 
   .academics-text {
     width: 100%;
@@ -173,16 +180,5 @@
 
   .academics-card-title {
     font-size: 1.5625rem;
-  }
-}
-
-
-@media only screen and (min-device-width : 390px) and (max-device-width : 992px) and (orientation : landscape) {
-  html {
-    body {
-      .academics-top {
-        margin-bottom: 4rem;
-      }
-    }
   }
 }

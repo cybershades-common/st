@@ -10,7 +10,7 @@ class GSAPAnimations {
       ease: {
         fade:  'power2.out',
         slide: 'power2.out',
-        zoom:  'none'
+        zoom:  'back.out(1.05)'
       }
     };
     this.init();
@@ -20,169 +20,6 @@ class GSAPAnimations {
     if (typeof gsap === 'undefined') return;
     gsap.registerPlugin(ScrollTrigger);
     this.setupAnimations();
-    this.initLoadTimeline();
-  }
-
-  // -----------------------------------------------------------------------
-  // Load Timeline - Animates header and hero on page load
-  // -----------------------------------------------------------------------
-
-  initLoadTimeline() {
-    // Create master timeline
-    const tl = gsap.timeline({
-      defaults: { ease: 'power2.out' }
-    });
-
-    // Header elements
-    const header = document.querySelector('.header');
-    const headerLogo = header?.querySelector('.header-logo');
-    const headerButtons = header?.querySelectorAll('.btn-header');
-    const headerDropdowns = header?.querySelectorAll('.dropdown-wrapper');
-    const headerIcons = header?.querySelector('.header-icons-wrapper');
-    const menuToggle = header?.querySelector('.menu-toggle');
-
-    // Hero elements
-    const heroTitle = document.querySelector('.hero-title');
-    const heroTitleSpans = heroTitle?.querySelectorAll('span');
-    const heroText = document.querySelector('.hero-text p');
-    const heroButton = document.querySelector('.hero-text button');
-    const heroGradient = document.querySelector('.hero-gradient');
-
-    // Set initial states - force override any existing styles
-    if (headerLogo) gsap.set(headerLogo, { y: -20, autoAlpha: 0 });
-    if (headerButtons.length) gsap.set(headerButtons, { y: -20, autoAlpha: 0 });
-    if (headerDropdowns.length) gsap.set(headerDropdowns, { y: -20, autoAlpha: 0 });
-    if (headerIcons) gsap.set(headerIcons, { y: -20, autoAlpha: 0 });
-    if (menuToggle) gsap.set(menuToggle, { y: -20, autoAlpha: 0 });
-
-    // Hero title - force visibility and opacity to 0 initially
-    if (heroTitle) {
-      gsap.set(heroTitle, {
-        visibility: 'visible',
-        opacity: 1
-      });
-    }
-
-    // Hero title spans - set each individually
-    if (heroTitleSpans?.length) {
-      heroTitleSpans.forEach(span => {
-        gsap.set(span, {
-          y: 60,
-          opacity: 0,
-          visibility: 'visible',
-          force3D: true,
-          willChange: 'transform, opacity'
-        });
-      });
-    }
-
-    if (heroText) {
-      gsap.set(heroText, {
-        y: 30,
-        opacity: 0,
-        visibility: 'visible',
-        force3D: true
-      });
-    }
-
-    if (heroButton) {
-      gsap.set(heroButton, {
-        y: 30,
-        opacity: 0,
-        visibility: 'visible',
-        force3D: true
-      });
-    }
-
-    if (heroGradient) {
-      gsap.set(heroGradient, {
-        opacity: 0,
-        visibility: 'visible'
-      });
-    }
-
-    // Animate header items
-    if (headerLogo) {
-      tl.to(headerLogo, {
-        y: 0,
-        autoAlpha: 1,
-        duration: 0.8
-      }, 0.2);
-    }
-
-    if (headerButtons.length) {
-      tl.to(headerButtons, {
-        y: 0,
-        autoAlpha: 1,
-        duration: 0.7,
-        stagger: 0.1
-      }, 0.3);
-    }
-
-    if (headerDropdowns.length) {
-      tl.to(headerDropdowns, {
-        y: 0,
-        autoAlpha: 1,
-        duration: 0.7,
-        stagger: 0.1
-      }, 0.4);
-    }
-
-    if (headerIcons || menuToggle) {
-      const headerRightItems = [headerIcons, menuToggle].filter(Boolean);
-      if (headerRightItems.length) {
-        tl.to(headerRightItems, {
-          y: 0,
-          autoAlpha: 1,
-          duration: 0.7,
-          stagger: 0.1
-        }, 0.5);
-      }
-    }
-
-    // Animate hero items
-    if (heroGradient) {
-      tl.to(heroGradient, {
-        opacity: 1,
-        duration: 0.8
-      }, 0.8);
-    }
-
-    if (heroTitleSpans?.length) {
-      tl.to(heroTitleSpans, {
-        y: 0,
-        opacity: 1,
-        duration: 1,
-        stagger: 0.15,
-        ease: 'power3.out',
-        force3D: true,
-        onComplete: () => {
-          heroTitleSpans.forEach(span => {
-            gsap.set(span, { clearProps: 'willChange' });
-          });
-        }
-      }, 1);
-    }
-
-    if (heroText) {
-      tl.to(heroText, {
-        y: 0,
-        opacity: 1,
-        duration: 0.8,
-        force3D: true
-      }, 1.4);
-    }
-
-    if (heroButton) {
-      tl.to(heroButton, {
-        y: 0,
-        opacity: 1,
-        duration: 0.8,
-        force3D: true
-      }, 1.6);
-    }
-
-    return tl;
   }
 
   // -----------------------------------------------------------------------
@@ -190,18 +27,8 @@ class GSAPAnimations {
   // -----------------------------------------------------------------------
 
   setupAnimations() {
-    this.setupAnimationsFor(document);
-  }
-
-  setupAnimationsFor(root) {
-    const isMobile = window.innerWidth <= 991;
-    root.querySelectorAll('[data-gsap],[data-gsap-mobile]').forEach(el => {
-      if (el.hasAttribute('data-gsap-initialized')) return;
-      const mobileType = el.getAttribute('data-gsap-mobile');
-      const desktopType = el.getAttribute('data-gsap');
-      const type = (isMobile && mobileType) ? mobileType : desktopType;
-      if (!type) return;
-      el.setAttribute('data-gsap-initialized', 'true');
+    document.querySelectorAll('[data-gsap]').forEach(el => {
+      const type = el.getAttribute('data-gsap');
       const cfg  = this.readConfig(el);
 
       try {
@@ -209,7 +36,7 @@ class GSAPAnimations {
           case 'fade-up':         this.fadeUp(el, cfg);        break;
           case 'fade-in':         this.fadeIn(el, cfg);        break;
           case 'slide-left':      this.slideLeft(el, cfg);     break;
-          case 'slide-right':     this.slideRight(el, cfg);      break;
+          case 'slide-right':     this.slideRight(el, cfg);    break;
           case 'zoom-in':         this.zoomIn(el, cfg);        break;
           case 'lines':           this.linesAnimation(el, cfg);  break;
           case 'lines-scrub':     this.linesScrub(el, cfg);     break;
@@ -231,21 +58,13 @@ class GSAPAnimations {
   }
 
   readConfig(el) {
-    const isMobile = window.innerWidth <= 991;
-    const s = (isMobile && el.getAttribute('data-gsap-stagger-mobile')) || el.getAttribute('data-gsap-stagger');
-    const durationAttr = (isMobile && el.getAttribute('data-gsap-duration-mobile')) || el.getAttribute('data-gsap-duration');
-    const delayAttr = (isMobile && el.getAttribute('data-gsap-delay-mobile')) || el.getAttribute('data-gsap-delay');
-    const easeAttr = (isMobile && el.getAttribute('data-gsap-ease-mobile')) || el.getAttribute('data-gsap-ease');
-    const startAttr = (isMobile && el.getAttribute('data-gsap-start-mobile')) || el.getAttribute('data-gsap-start');
-    const duration = parseFloat(durationAttr);
-    const delay = parseFloat(delayAttr);
-    const stagger = s ? parseFloat(s) : null;
+    const s = el.getAttribute('data-gsap-stagger');
     return {
-      delay:    Number.isFinite(delay) ? delay : 0,
-      duration: Number.isFinite(duration) ? duration : this.defaults.duration,
-      stagger,
-      start:    startAttr || this.defaults.start,
-      ease:     easeAttr || null
+      delay:    parseFloat(el.getAttribute('data-gsap-delay'))    || 0,
+      duration: parseFloat(el.getAttribute('data-gsap-duration')) || this.defaults.duration,
+      stagger:  s ? parseFloat(s) : null,
+      start:    el.getAttribute('data-gsap-start') || this.defaults.start,
+      ease:     el.getAttribute('data-gsap-ease')  || null
     };
   }
 
@@ -331,23 +150,15 @@ class GSAPAnimations {
     const kids    = this.animChildren(el);
     const target  = kids && cfg.stagger ? kids : el;
     const stagger = kids && cfg.stagger ? cfg.stagger : 0;
-    const targets = Array.isArray(target) ? target : [target];
 
-    // Reduce movement distance on mobile for smoother animation
-    const yDist = window.innerWidth <= 991 ? 30 : 50;
-
-    gsap.set(targets, { transition: 'none' });
-    gsap.set(target, { y: yDist, autoAlpha: 0, force3D: true });
+    gsap.set(target, { y: 50, autoAlpha: 0, force3D: true });
     gsap.to(target, {
       y: 0, autoAlpha: 1, force3D: true,
       duration: cfg.duration,
       ease:     cfg.ease || this.defaults.ease.fade,
       delay:    cfg.delay,
       stagger,
-      scrollTrigger: this.triggerCfg(el, cfg),
-      onComplete: () => {
-        targets.forEach(t => gsap.set(t, { clearProps: 'transition' }));
-      }
+      scrollTrigger: this.triggerCfg(el, cfg)
     });
   }
 
@@ -355,9 +166,7 @@ class GSAPAnimations {
     const kids    = this.animChildren(el);
     const target  = kids && cfg.stagger ? kids : el;
     const stagger = kids && cfg.stagger ? cfg.stagger : 0;
-    const targets = Array.isArray(target) ? target : [target];
 
-    gsap.set(targets, { transition: 'none' });
     gsap.set(target, { autoAlpha: 0 });
     gsap.to(target, {
       autoAlpha: 1,
@@ -365,10 +174,7 @@ class GSAPAnimations {
       ease:     cfg.ease || this.defaults.ease.fade,
       delay:    cfg.delay,
       stagger,
-      scrollTrigger: this.triggerCfg(el, cfg),
-      onComplete: () => {
-        targets.forEach(t => gsap.set(t, { clearProps: 'transition' }));
-      }
+      scrollTrigger: this.triggerCfg(el, cfg)
     });
   }
 
@@ -382,8 +188,6 @@ class GSAPAnimations {
     const stagger = kids && cfg.stagger ? cfg.stagger : 0;
     const dist    = window.innerWidth <= 991 ? 80 : 300;
 
-    const targets = Array.isArray(target) ? target : [target];
-    gsap.set(targets, { transition: 'none' });
     gsap.set(target, { x: -dist, autoAlpha: 0, force3D: true });
     gsap.to(target, {
       x: 0, autoAlpha: 1, force3D: true,
@@ -391,10 +195,7 @@ class GSAPAnimations {
       ease:     cfg.ease || this.defaults.ease.slide,
       delay:    cfg.delay,
       stagger,
-      scrollTrigger: this.triggerCfg(el, cfg),
-      onComplete: () => {
-        targets.forEach(t => gsap.set(t, { clearProps: 'transition' }));
-      }
+      scrollTrigger: this.triggerCfg(el, cfg)
     });
   }
 
@@ -404,8 +205,6 @@ class GSAPAnimations {
     const stagger = kids && cfg.stagger ? cfg.stagger : 0;
     const dist    = window.innerWidth <= 991 ? 80 : 300;
 
-    const targets = Array.isArray(target) ? target : [target];
-    gsap.set(targets, { transition: 'none' });
     gsap.set(target, { x: dist, autoAlpha: 0, force3D: true });
     gsap.to(target, {
       x: 0, autoAlpha: 1, force3D: true,
@@ -413,10 +212,7 @@ class GSAPAnimations {
       ease:     cfg.ease || this.defaults.ease.slide,
       delay:    cfg.delay,
       stagger,
-      scrollTrigger: this.triggerCfg(el, cfg),
-      onComplete: () => {
-        targets.forEach(t => gsap.set(t, { clearProps: 'transition' }));
-      }
+      scrollTrigger: this.triggerCfg(el, cfg)
     });
   }
 
@@ -429,10 +225,10 @@ class GSAPAnimations {
     const target  = kids && cfg.stagger ? kids : el;
     const stagger = kids && cfg.stagger ? cfg.stagger : 0;
 
-    gsap.set(target, { scale: 0.9, autoAlpha: 0, force3D: true });
+    gsap.set(target, { scale: 0.7, autoAlpha: 0, force3D: true });
     gsap.to(target, {
       scale: 1, autoAlpha: 1, force3D: true,
-      duration: 0.6,  // Increased from 0.2s for smoother animation
+      duration: cfg.duration,
       ease:     cfg.ease || this.defaults.ease.zoom,
       delay:    cfg.delay,
       stagger,
@@ -454,7 +250,7 @@ class GSAPAnimations {
       y: 0, autoAlpha: 1, force3D: true,
       duration: cfg.duration,
       ease:     cfg.ease || this.defaults.ease.fade,
-      stagger:  cfg.stagger || 0.1,
+      stagger:  cfg.stagger || 0.15,
       delay:    cfg.delay,
       scrollTrigger: this.triggerCfg(el, cfg)
     });
@@ -483,7 +279,7 @@ class GSAPAnimations {
       y: 0, autoAlpha: 1, force3D: true,
       duration: 1,
       ease:     cfg.ease || this.defaults.ease.fade,
-      stagger:  0.5
+      stagger:  cfg.stagger || 0.1
     });
   }
 
@@ -736,7 +532,7 @@ class GSAPAnimations {
     });
   }
 
-  // Smooth fade-in with gentle zoom out (scale > 1 → 1)
+  // Smooth fade-in with zoom out (scale 1.15 → 1)
   imageFadeIn(el, cfg) {
     if (!el) return;
 
@@ -744,50 +540,15 @@ class GSAPAnimations {
     const target  = kids && cfg.stagger ? kids : el;
     const stagger = kids && cfg.stagger ? cfg.stagger : 0;
 
-    const isMobile = window.innerWidth <= 991;
-    const start = (isMobile && el.getAttribute('data-gsap-start-mobile'))
-      || el.getAttribute('data-gsap-start')
-      || 'top 50%';
-
-    const scaleFrom = isMobile ? 1.3 : 1.3;
-
-    const targets = Array.isArray(target) ? target : [target];
-    targets.forEach(node => {
-      const img = node.tagName === 'IMG' ? node : node.querySelector?.('img');
-      const wrapper = img ? img.parentElement : node.parentElement;
-      if (wrapper && wrapper.style.overflow !== 'hidden') {
-        wrapper.style.overflow = 'hidden';
-      }
-    });
-
-    gsap.set(target, {
-      scale: scaleFrom,
-      autoAlpha: 0,
-      transformOrigin: '50% 50%',
-      force3D: true,
-      backfaceVisibility: 'hidden',
-      willChange: 'transform, opacity',
-      transition: 'none'
-    });
+    gsap.set(target, { scale: 1.65, opacity: 0, force3D: true });
     gsap.to(target, {
-      scale: 1,
-      autoAlpha: 1,
-      duration:  1,
+      scale: 1, opacity: 1,
+      duration: cfg.duration || 1.2,
       ease:     cfg.ease || 'power2.out',
       delay:    cfg.delay,
       stagger,
       force3D:  true,
-      scrollTrigger: {
-        trigger: el,
-        start,
-        toggleActions: 'play none none none'
-      },
-      onComplete: () => {
-        // Clean up willChange after animation completes
-        (Array.isArray(target) ? target : [target]).forEach(e =>
-          gsap.set(e, { clearProps: 'will-change,transition' })
-        );
-      }
+      scrollTrigger: this.triggerCfg(el, cfg)
     });
   }
 
@@ -799,10 +560,6 @@ class GSAPAnimations {
   // Element should be inside an overflow:hidden section.
   parallaxBg(el, cfg) {
     if (!el) return;
-
-    // Disable parallax on mobile for better performance
-    const isMobile = window.innerWidth <= 991;
-    if (isMobile) return;
 
     const section = el.closest('section') || el.parentElement;
     gsap.to(el, {
@@ -822,9 +579,5 @@ class GSAPAnimations {
 // Auto-init after fonts are loaded — splitLines measures word positions,
 // so it must run with the final font, not the fallback (font-display: swap).
 document.addEventListener('DOMContentLoaded', () => {
-  document.fonts.ready.then(() => {
-    const instance = new GSAPAnimations();
-    window.gsapAnimations = instance;
-    window.gsapInitFor = (root) => instance.setupAnimationsFor(root);
-  });
+  document.fonts.ready.then(() => new GSAPAnimations());
 });

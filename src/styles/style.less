@@ -8,7 +8,6 @@
 
 html {
   font-size: 16px;
-  scrollbar-gutter: stable;
 }
 
 .wrapper {
@@ -21,12 +20,6 @@ object,
 video {
   max-width: 100%;
   object-fit: cover;
-}
-
-// Prevent flash before GSAP initializes image reveal
-[data-gsap="image-fade-in"] {
-  opacity: 0;
-  visibility: hidden;
 }
 
 .full {
@@ -57,36 +50,10 @@ select {
   padding-right: 1.875rem;
 }
 
-.section {
-  position: relative;
-  overflow: hidden;
-
-  .gradient-circle {
-    width: 62.6875rem;
-    height: 62.6875rem;
-    aspect-ratio: 1/1;
-    border-radius: 62.6875rem;
-    background: var(--primary-yellow-bright, #FFF02A);
-    filter: blur(9.375rem);
-    position: absolute;
-    opacity: 0;
-    visibility: hidden;
-
-    &.right {
-      right: -50%;
-      bottom: -60%
-    }
-
-    &.left {
-      left: -50%;
-      bottom: -75% 
-    }
-  }
-}
-a[href^=tel]{ color:var(--basic-black); text-decoration:none;}
 
 @import '_fonts';
 @import '_variables';
+@import '_responsive';
 @import '_typography';
 @import '_buttons';
 @import '_header';
@@ -101,4 +68,3 @@ a[href^=tel]{ color:var(--basic-black); text-decoration:none;}
 @import '_latest-news';
 @import '_cta';
 @import '_footer';
-@import '_responsive';
